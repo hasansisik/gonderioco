@@ -1,0 +1,42 @@
+[
+    {
+        "id": "software",
+        "name": "Yazılım"
+    },
+    {
+        "id": "marketing",
+        "name": "Pazarlama"
+    },
+    {
+        "id": "design",
+        "name": "Tasarım"
+    },
+    {
+        "id": "education",
+        "name": "Eğitim"
+    },
+    {
+        "id": "finance",
+        "name": "Finans"
+    },
+    {
+        "id": "health",
+        "name": "Sağlık"
+    },
+    {
+        "id": "tourism",
+        "name": "Turizm"
+    },
+    {
+        "id": "construction",
+        "name": "İnşaat"
+    },
+    {
+        "id": "logistics",
+        "name": "Lojistik"
+    },
+    {
+        "id": "other",
+        "name": "Diğer"
+    }
+]
