@@ -77,6 +77,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     MapPin,
     Navigation,
     Settings,
+    Ghost: () => <span className="text-xl">👻</span>,
   };
 
   const computeNavData = React.useCallback(() => {
@@ -105,6 +106,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         title: "Canlı Sevkiyat Takibi",
         url: "/panel/canli-sevkiyatlar",
         iconKey: "Navigation",
+      },
+      {
+        title: "Cani",
+        url: "/panel/cani",
+        iconKey: "Ghost",
       },
       {
         title: "Kurye Taleplerim",
