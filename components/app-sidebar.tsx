@@ -1,4 +1,6 @@
 "use client"
+// GONDERIO_SIDEBAR_V3_FORCE_REBUILD
+console.log("Rendering AppSidebar V3");
 
 import * as React from "react"
 import {
@@ -7,10 +9,15 @@ import {
   LayoutGrid,
   MessageSquare,
   Settings,
-  UserCircle2,
-  Users,
-  Store,
-  Send,
+  PlusCircle,
+  Package,
+  UserCheck,
+  Calculator,
+  Blocks,
+  FileText,
+  Wallet,
+  Home,
+  MapPin,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -57,29 +64,87 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   const ICON_MAP: Record<string, any> = {
     LayoutGrid,
-    UserCircle2,
-    Coins,
-    ProductsIcon,
-    BarChart2,
+    Calculator,
+    PlusCircle,
+    Package,
+    UserCheck,
     MessageSquare,
-    Users,
+    Blocks,
+    FileText,
+    Wallet,
+    Home,
+    MapPin,
     Settings,
-    Store,
-    Send,
   };
 
   const computeNavData = React.useCallback(() => {
-    const items = [
+    return [
       {
         title: "Kontrol Paneli",
         url: "/panel",
         iconKey: "LayoutGrid",
-        visible: isCustomer || hasAnyPermission(["Full Dashboard", "Limited Dashboard", "Basic Dashboard"]),
+      },
+      {
+        title: "Hızlı Fiyat Hesapla",
+        url: "/panel/hizli-fiyat",
+        iconKey: "Calculator",
+      },
+      {
+        title: "Gönderi Oluştur",
+        url: "/panel/gonderi-olustur",
+        iconKey: "PlusCircle",
+      },
+      {
+        title: "Sevkiyatlarım",
+        url: "/panel/sevkiyatlarim",
+        iconKey: "Package",
+      },
+      {
+        title: "Kurye Taleplerim",
+        url: "/panel/kurye-taleplerim",
+        iconKey: "UserCheck",
+      },
+      {
+        title: "Taleplerim",
+        url: "/panel/taleplerim",
+        iconKey: "MessageSquare",
+      },
+      {
+        title: "Entegrasyonlarım",
+        url: "#",
+        iconKey: "Blocks",
+        items: [
+          { title: "Siparişlerim", url: "/panel/entegrasyon/siparislerim" },
+          { title: "Pazaryeri", url: "/panel/entegrasyon/pazaryeri" },
+          { title: "Fatura Entegrasyonları", url: "/panel/entegrasyon/fatura" },
+        ],
+      },
+      {
+        title: "Navlungo Belgelerim",
+        url: "#",
+        iconKey: "FileText",
+        items: [
+          { title: "Etgb'lerim", url: "/panel/belgeler/etgb" },
+          { title: "Faturalarım", url: "/panel/belgeler/faturalar" },
+        ],
+      },
+      {
+        title: "Ödemelerim",
+        url: "#",
+        iconKey: "Wallet",
+        items: [
+          { title: "Navlungo Cüzdan", url: "/panel/odemeler/cüzdan" },
+          { title: "Ödeme Geçmişim", url: "/panel/odemeler/gecmis" },
+          { title: "Kayıtlı Kartlarım", url: "/panel/odemeler/kartlar" },
+        ],
+      },
+      {
+        title: "Adreslerim",
+        url: "/panel/adreslerim",
+        iconKey: "Home",
       },
     ];
-
-    return items.filter(item => item.visible);
-  }, [isCustomer, hasPermission, hasAnyPermission, totalUnreadCount, settings]);
+  }, []);
 
   const [navItems, setNavItems] = React.useState<any[]>([]);
 
@@ -90,41 +155,21 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     }));
   }, []);
 
-  // 1. Initial Load from Persistent Cache
+  // 1. Initial Load from Persistent Cache - REMOVED TO ENSURE LATEST ITEMS SHOW
   React.useEffect(() => {
+    // Clear old cache to be 100% sure
     if (typeof window !== 'undefined') {
-      const cachedNav = localStorage.getItem('sidebar_nav_items');
-      if (cachedNav) {
-        try {
-          const parsed = JSON.parse(cachedNav);
-          setNavItems(attachIconsToItems(parsed));
-        } catch (e) {
-          console.error("Sidebar cache parse error", e);
-        }
-      }
+      localStorage.removeItem('sidebar_nav_items');
     }
 
     // Immediate settings fetch
     dispatch(getSettings());
     dispatch(getConversations());
 
+    const items = computeNavData();
+    setNavItems(attachIconsToItems(items));
     setMounted(true);
-  }, []); // Only once on mount
-
-  // 2. Sync computed data when loading is complete
-  React.useEffect(() => {
-    if (!isLoading && typeof window !== 'undefined') {
-      if (user || isCustomer) {
-        const items = computeNavData();
-        setNavItems(attachIconsToItems(items));
-        localStorage.setItem('sidebar_nav_items', JSON.stringify(items));
-      } else if (!isLoading && !user && mounted) {
-        // Clear cache if no user found (logout case)
-        setNavItems([]);
-        localStorage.removeItem('sidebar_nav_items');
-      }
-    }
-  }, [isLoading, computeNavData, attachIconsToItems, user, isCustomer, mounted]);
+  }, [computeNavData, attachIconsToItems, dispatch]);
 
   // Keep conversations updated
   React.useEffect(() => {
@@ -148,15 +193,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       style={{ "--sidebar": "#FAF7F5" } as React.CSSProperties}
       {...props}
     >
-      <SidebarHeader className="px-6 pt-6 pb-2">
-        <div className="flex items-center gap-3 min-h-[40px]">
+      <SidebarHeader className="px-6 pt-10 pb-4">
+        <div className="flex items-center gap-3 min-h-[80px]">
           <img
             src={logoToRender}
             alt="gonderio.co"
             loading="eager"
             fetchPriority="high"
             className={cn(
-              "h-10 w-auto object-contain transition-all duration-500",
+              "h-20 w-auto object-contain transition-all duration-500",
               !mounted ? "opacity-0 scale-95" : "opacity-100 scale-100"
             )}
           />
@@ -164,15 +209,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
 
       <SidebarContent className="px-3 py-2 overflow-y-auto no-scrollbar">
-        {isLoading && navItems.length === 0 ? (
-          <div className="space-y-2 px-2 py-4">
-            {[1, 2, 3, 4, 5].map(i => (
-              <div key={i} className="h-10 w-full bg-slate-200/50 animate-pulse rounded-xl" />
-            ))}
-          </div>
-        ) : (
-          <NavMain items={navItems} />
-        )}
+        <NavMain items={attachIconsToItems(computeNavData())} />
       </SidebarContent>
 
       <SidebarFooter className="p-4">
