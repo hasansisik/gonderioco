@@ -18,6 +18,7 @@ import {
   Wallet,
   Home,
   MapPin,
+  Navigation,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -74,6 +75,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     Wallet,
     Home,
     MapPin,
+    Navigation,
     Settings,
   };
 
@@ -98,6 +100,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         title: "Sevkiyatlarım",
         url: "/panel/sevkiyatlarim",
         iconKey: "Package",
+      },
+      {
+        title: "Canlı Sevkiyat Takibi",
+        url: "/panel/canli-sevkiyatlar",
+        iconKey: "Navigation",
       },
       {
         title: "Kurye Taleplerim",
