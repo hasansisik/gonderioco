@@ -24,6 +24,7 @@ import {
   SidebarHeader,
 } from "@/components/ui/sidebar"
 import { NavMain } from "@/components/nav-main"
+import { NavUser } from "@/components/nav-user"
 import { usePermissions } from "@/hooks/usePermissions"
 
 // Custom Icon for "Ürünler" as seen in the mockup (vertical bars)
@@ -74,95 +75,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         url: "/panel",
         iconKey: "LayoutGrid",
         visible: isCustomer || hasAnyPermission(["Full Dashboard", "Limited Dashboard", "Basic Dashboard"]),
-      },
-      {
-        title: "Müşteriler",
-        url: "/panel/musteriler",
-        iconKey: "UserCircle2",
-        visible: !isCustomer && hasPermission("Müşteri Görüntüle"),
-      },
-      {
-        title: "Teklifler",
-        url: "/panel/teklifler",
-        iconKey: "Coins",
-        visible: isCustomer || hasAnyPermission(["Teklif Görüntüle", "Şartlar ve Koşullar"]),
-        items: isCustomer ? [
-          { title: "Tekliflerim", url: "/panel/teklifler/tekliflerim", visible: true },
-        ] : [
-          { title: "Tekliflerim", url: "/panel/teklifler/tekliflerim", visible: hasPermission("Teklif Görüntüle") },
-          { title: "Teklif Şablonu", url: "/panel/teklifler/teklif-sablonu", visible: hasPermission("Teklif Görüntüle") },
-          { title: "Şartlar ve Koşullar", url: "/panel/teklifler/sartlar", visible: hasPermission("Şartlar ve Koşullar") },
-        ].filter(item => item.visible),
-      },
-      {
-        title: "Ürün Yönetimi",
-        url: "/panel/urunler",
-        iconKey: "ProductsIcon",
-        visible: !isCustomer && hasAnyPermission(["Ürün Görüntüle", "Stok Yönetimi Görüntüle", "Depo Görüntüle"]),
-        items: [
-          { title: "Ürünler", url: "/panel/urunler", visible: hasPermission("Ürün Görüntüle") },
-          { title: "Stok Yönetimi", url: "/panel/stok", visible: hasPermission("Stok Yönetimi Görüntüle") },
-          { title: "Depolar", url: "/panel/depolar", visible: hasPermission("Depo Görüntüle") },
-        ].filter(item => item.visible),
-      },
-      {
-        title: "Mesajlar",
-        url: "/panel/mesajlar",
-        iconKey: "MessageSquare",
-        visible: isCustomer || hasPermission("Mesajlar"),
-        badge: totalUnreadCount > 0 ? totalUnreadCount.toString() : undefined,
-      },
-      {
-        title: "Müşteri Toplu Mesaj",
-        url: "/panel/toplu-mesaj",
-        iconKey: "Send",
-        visible: (!isCustomer && settings?.enabledModules?.massMessage && (user?.userType === 'provider' || hasPermission("Toplu Mesaj Gönder"))),
-      },
-      {
-        title: "Prim Sistemi",
-        url: "/panel/prim-sistemi",
-        iconKey: "Coins",
-        visible: (!isCustomer && settings?.enabledModules?.commissionSystem && (user?.userType === 'provider' || hasPermission("Prim Yönetimi"))),
-      },
-      {
-        title: "Personel Yönetimi",
-        url: "/panel/personel-yonetimi",
-        iconKey: "Users",
-        visible: !isCustomer && hasAnyPermission(["Personel Yönetimi", "Departman Yönetimi"]),
-        items: [
-          { title: "Personeller", url: "/panel/personel", visible: hasPermission("Personel Yönetimi") },
-          { title: "Departmanlar", url: "/panel/departmanlar", visible: hasPermission("Departman Yönetimi") },
-        ].filter(item => item.visible),
-      },
-      {
-        title: "Raporlar",
-        url: "/panel/raporlar",
-        iconKey: "BarChart2",
-        visible: !isCustomer && hasPermission("Rapor Görüntüle"),
-        items: [
-          { title: "Teklif Raporları", url: "/panel/raporlar/teklif", visible: true },
-          { title: "Ürün Raporları", url: "/panel/raporlar/urun", visible: true },
-          { title: "Müşteri Raporları", url: "/panel/raporlar/musteri", visible: true },
-          { title: "Personel Raporları", url: "/panel/raporlar/personel", visible: true },
-        ].filter(item => item.visible),
-      },
-      {
-        title: "Mağaza",
-        url: "/panel/magaza",
-        iconKey: "Store",
-        visible: (!isCustomer && (user?.userType === 'provider' || hasPermission("Mağaza Görüntüle"))),
-      },
-      {
-        title: "Firmalar",
-        url: "/panel/firmalar",
-        iconKey: "UserCircle2",
-        visible: isCustomer,
-      },
-      {
-        title: "Genel Ayarlar",
-        url: "/panel/ayarlar",
-        iconKey: "Settings",
-        visible: true,
       },
     ];
 
@@ -263,8 +175,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         )}
       </SidebarContent>
 
-      <SidebarFooter className="p-6">
-        <div className="flex flex-col gap-1">
+      <SidebarFooter className="p-4">
+        {user && (
+          <NavUser user={{
+            name: user.name || user.username || "User",
+            email: user.email || "",
+            avatar: user.avatar || "/avatar.png"
+          }} />
+        )}
+        <div className="flex flex-col gap-1 mt-4 px-2">
           <span className="text-[11px] font-medium text-slate-400 opacity-60">
             © 2026 SadeceTeklif.com
           </span>

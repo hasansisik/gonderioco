@@ -24,6 +24,7 @@ export interface RegisterPayload {
   userType?: "buyer" | "provider" | "customer";
   companyCode?: string;
   sectors?: string[];
+  phone?: string;
 }
 
 export interface LoginPayload {
@@ -83,7 +84,7 @@ export interface GoogleLoginPayload {
 
 export const register = createAsyncThunk(
   "user/register",
-  async ({ name, surname, email, password, picture, company, taxNumber, userType, companyCode, sectors }: RegisterPayload, thunkAPI) => {
+  async ({ name, surname, email, password, picture, company, taxNumber, userType, companyCode, sectors, phone }: RegisterPayload, thunkAPI) => {
     try {
       const { data } = await axios.post(`${server}/auth/register`, {
         name,
@@ -95,7 +96,8 @@ export const register = createAsyncThunk(
         taxNumber,
         userType,
         companyCode,
-        sectors
+        sectors,
+        phone
       });
 
       if (data.user && data.user.token) {

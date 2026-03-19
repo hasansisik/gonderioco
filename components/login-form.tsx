@@ -57,7 +57,7 @@ export function LoginForm({
       <div className="flex flex-col items-center gap-2">
         <img
           src="/logo.png"
-          alt="sadeceteklif.com"
+          alt="gonderio.co"
           className="h-10 w-auto object-contain"
         />
       </div>
