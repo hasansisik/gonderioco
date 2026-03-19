@@ -9,8 +9,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Sadece Teklif",
-  description: "Sadece Teklif CRM ve Teklif Yönetim Sistemi",
+  title: "gonderio.co",
+  description: "gonderio.co CRM ve Teklif Yönetim Sistemi",
 };
 
 import { Toaster } from "@/components/ui/sonner";

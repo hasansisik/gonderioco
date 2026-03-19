@@ -152,7 +152,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <div className="flex items-center gap-3 min-h-[40px]">
           <img
             src={logoToRender}
-            alt="sadeceteklif.com"
+            alt="gonderio.co"
             loading="eager"
             fetchPriority="high"
             className={cn(
@@ -185,7 +185,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         )}
         <div className="flex flex-col gap-1 mt-4 px-2">
           <span className="text-[11px] font-medium text-slate-400 opacity-60">
-            © 2026 SadeceTeklif.com
+            © 2026 gonderio.co
           </span>
         </div>
       </SidebarFooter>
