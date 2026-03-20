@@ -76,10 +76,10 @@
     "typescript": "^5"
   },
   "overrides": {
+    "react": "$react",
+    "react-dom": "$react-dom",
     "react-day-picker": {
-      "date-fns": "$date-fns",
-      "react": "$react",
-      "react-dom": "$react-dom"
+      "date-fns": "$date-fns"
     }
   }
 }
