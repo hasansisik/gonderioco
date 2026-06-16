@@ -11,7 +11,7 @@ interface BlogCardProps {
 export function BlogCard({ blog, featured = false }: BlogCardProps) {
   if (featured) {
     return (
-      <Link href={`/blog/${blog.slug}`} className="group relative grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-8 lg:gap-12 items-center bg-white rounded-3xl overflow-hidden border border-slate-100 hover:shadow-xl transition-all duration-500">
+      <Link href={`/blog/${blog.slug}`} className="group relative grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-8 lg:gap-12 items-center bg-white rounded-3xl overflow-hidden border border-slate-100 transition-all duration-500">
         <div className="relative w-full aspect-video lg:aspect-square overflow-hidden bg-slate-100">
           <Image 
             src={blog.coverImage} 

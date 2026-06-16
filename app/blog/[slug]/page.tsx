@@ -7,6 +7,12 @@ import { Header } from "@/components/landing/header"
 import { Footer } from "@/components/landing/footer"
 import { BlogCard } from "@/components/blog/blog-card"
 
+export async function generateStaticParams() {
+  return blogs.map((blog) => ({
+    slug: blog.slug,
+  }))
+}
+
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const blog = blogs.find(b => b.slug === slug);

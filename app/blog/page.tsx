@@ -5,9 +5,20 @@ import Link from "next/link"
 import { Header } from "@/components/landing/header"
 import { Footer } from "@/components/landing/footer"
 
-export default function BlogIndex() {
-  const featuredBlog = blogs[0];
-  const otherBlogs = blogs.slice(1);
+export default async function BlogPage(props: { searchParams: Promise<{ category?: string }> }) {
+  const searchParams = await props.searchParams;
+  const activeCategory = searchParams.category || "Tümü";
+
+  // Basit bir filtreleme mantığı (seçilen kategori etikette geçiyorsa veya Tümü ise)
+  const filteredBlogs = activeCategory === "Tümü" 
+    ? blogs 
+    : blogs.filter(b => b.tags.some(t => t.toLowerCase().includes(activeCategory.toLowerCase())) || 
+                        // Kargo İpuçları gibi tam eşleşmeyenler için ekstra kontrol
+                        (activeCategory === "Kargo İpuçları" && b.tags.includes("Lojistik")) ||
+                        (activeCategory === "Başarı Hikayeleri" && b.tags.includes("Dropshipping")));
+
+  const featuredBlog = filteredBlogs.length > 0 ? filteredBlogs[Math.floor(Math.random() * filteredBlogs.length)] : blogs[0];
+  const otherBlogs = filteredBlogs.filter(b => b.id !== featuredBlog.id);
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
@@ -36,18 +47,20 @@ export default function BlogIndex() {
           </div>
 
           {/* Category Filter Mock */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 scrollbar-hide">
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-16">
             {["Tümü", "E-ihracat", "Gümrük", "Entegrasyon", "Başarı Hikayeleri", "Kargo İpuçları"].map((cat, i) => (
-              <button 
+              <Link 
+                href={cat === "Tümü" ? "/blog" : `/blog?category=${encodeURIComponent(cat)}`}
                 key={i} 
+                scroll={false}
                 className={`whitespace-nowrap px-4 py-2 rounded-full text-[13px] font-medium transition-all ${
-                  i === 0 
+                  activeCategory === cat 
                     ? "bg-slate-900 text-white shadow-md" 
                     : "bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:bg-slate-50"
                 }`}
               >
                 {cat}
-              </button>
+              </Link>
             ))}
           </div>
 

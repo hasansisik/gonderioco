@@ -41,8 +41,8 @@ export function ShowcaseFeatures() {
             <div className="p-8 md:p-16 bg-slate-50/50 flex items-center justify-center min-h-[400px]">
               <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-slate-200/60 bg-white">
                 <Image 
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" 
-                  alt="Dashboard View" 
+                  src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?q=80&w=1000&auto=format&fit=crop" 
+                  alt="E-commerce Integration" 
                   fill
                   className="object-cover object-top"
                 />
@@ -56,8 +56,8 @@ export function ShowcaseFeatures() {
             <div className="order-2 md:order-1 p-8 md:p-16 bg-slate-50/50 flex items-center justify-center min-h-[400px]">
               <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-slate-200/60 bg-white">
                 <Image 
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" 
-                  alt="Analytics View" 
+                  src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?q=80&w=1000&auto=format&fit=crop" 
+                  alt="Logistics Optimization" 
                   fill
                   className="object-cover"
                 />
@@ -97,8 +97,8 @@ export function ShowcaseFeatures() {
             <div className="p-8 md:p-16 bg-slate-50/50 flex items-center justify-center min-h-[400px]">
               <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-slate-200/60 bg-white">
                 <Image 
-                  src="https://images.unsplash.com/photo-1555421689-491a97ff2040?q=80&w=1000&auto=format&fit=crop" 
-                  alt="Share View" 
+                  src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=1000&auto=format&fit=crop" 
+                  alt="Mobile Tracking" 
                   fill
                   className="object-cover"
                 />

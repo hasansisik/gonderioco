@@ -37,13 +37,23 @@ export function Header({ theme = "orange" }: HeaderProps) {
         {/* Left Side: Navigation */}
         <div className="flex flex-1 items-center justify-start">
           <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-[13px] font-semibold">
-            <Link href="#hizmetlerimiz" className={`flex items-center gap-1 whitespace-nowrap transition-colors ${isScrolled || theme === "light" ? "hover:text-black/70" : "hover:text-white/80"}`}>
-              Hizmetlerimiz <ChevronDown className="h-3 w-3" />
+            {/* Hizmetlerimiz Dropdown */}
+            <div className="relative group">
+              <Link href="#" className={`flex items-center gap-1 whitespace-nowrap transition-colors py-4 ${isScrolled || theme === "light" ? "hover:text-black/70" : "hover:text-white/80"}`}>
+                Hizmetlerimiz <ChevronDown className="h-3 w-3" />
+              </Link>
+              <div className="absolute top-[80%] left-0 w-56 bg-white rounded-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 p-2">
+                <Link href="/blog/etsy-saticilari-icin-mikro-ihracat-rehberi" className="block px-4 py-3 text-[13px] font-normal text-slate-700 hover:text-slate-900 hover:underline decoration-black decoration-2 underline-offset-4 transition-all">Etsy Kargo</Link>
+                <Link href="/blog/amazon-fba-ve-fbm-arasindaki-kargo-farklari" className="block px-4 py-3 text-[13px] font-normal text-slate-700 hover:text-slate-900 hover:underline decoration-black decoration-2 underline-offset-4 transition-all">Amazon Kargo</Link>
+                <Link href="/blog/shopify-kargo-entegrasyonu-ve-otomasyonu" className="block px-4 py-3 text-[13px] font-normal text-slate-700 hover:text-slate-900 hover:underline decoration-black decoration-2 underline-offset-4 transition-all">Shopify Kargo</Link>
+                <Link href="/blog/woocommerce-ile-kargo-sistemi-kurulumu" className="block px-4 py-3 text-[13px] font-normal text-slate-700 hover:text-slate-900 hover:underline decoration-black decoration-2 underline-offset-4 transition-all">WooCommerce Kargo</Link>
+              </div>
+            </div>
+
+            <Link href="/nasil-calisir" className={`flex items-center gap-1 whitespace-nowrap transition-colors py-4 ${isScrolled || theme === "light" ? "hover:text-black/70" : "hover:text-white/80"}`}>
+              Nasıl Çalışır?
             </Link>
-            <Link href="#nasil-calisir" className={`flex items-center gap-1 whitespace-nowrap transition-colors ${isScrolled || theme === "light" ? "hover:text-black/70" : "hover:text-white/80"}`}>
-              Nasıl Çalışır? <ChevronDown className="h-3 w-3" />
-            </Link>
-            <Link href="#sss" className={`whitespace-nowrap transition-colors ${isScrolled || theme === "light" ? "hover:text-black/70" : "hover:text-white/80"}`}>
+            <Link href="/sss" className={`whitespace-nowrap transition-colors py-4 ${isScrolled || theme === "light" ? "hover:text-black/70" : "hover:text-white/80"}`}>
               Sıkça Sorulan Sorular
             </Link>
           </nav>
@@ -63,9 +73,18 @@ export function Header({ theme = "orange" }: HeaderProps) {
         {/* Right Actions */}
         <div className="flex flex-1 items-center justify-end">
           <div className="hidden lg:flex items-center gap-4 xl:gap-6 text-[13px] font-semibold">
-          <Link href="#diger-urunler" className={`flex items-center gap-1 whitespace-nowrap transition-colors ${isScrolled || theme === "light" ? "hover:text-black/70" : "hover:text-white/80"}`}>
-            Diğer Ürünlerimiz <ChevronDown className="h-3 w-3" />
-          </Link>
+          {/* Diğer Ürünlerimiz Dropdown */}
+          <div className="relative group">
+            <Link href="#" className={`flex items-center gap-1 whitespace-nowrap transition-colors py-4 ${isScrolled || theme === "light" ? "hover:text-black/70" : "hover:text-white/80"}`}>
+              Diğer Ürünlerimiz <ChevronDown className="h-3 w-3" />
+            </Link>
+            <div className="absolute top-[80%] right-0 w-60 bg-white rounded-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 p-2">
+              <Link href="#" className="flex items-center justify-between px-4 py-3 text-[13px] font-normal text-slate-700 hover:text-slate-900 transition-all group/link">
+                <span className="group-hover/link:underline decoration-black decoration-2 underline-offset-4">Türkiye'den Getir</span>
+                <span className="bg-[#FA8B00]/20 text-[#FA8B00] text-[10px] font-bold px-2 py-0.5 rounded-full">Yakında</span>
+              </Link>
+            </div>
+          </div>
           
           <Link
             href="/giris"

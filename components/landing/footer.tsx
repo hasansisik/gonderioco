@@ -38,22 +38,30 @@ export function Footer() {
           
           {/* Top Section */}
           <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-8 border-b border-white/10 pb-12">
-            {/* Logo */}
-            <div>
+            {/* Logo and Description */}
+            <div className="flex flex-col pr-8">
               <img
                 src="/logo.png"
                 alt="Gönderio"
                 className="mb-6 h-12 w-auto object-contain brightness-0 invert"
               />
+              <p className="text-sm text-[#8F9BB3] mb-8 leading-relaxed">
+                Gönderio, e-ihracat süreçlerinizi dijitalleştiren ve uluslararası kargo gönderimlerinizi tek panelden yönetmenizi sağlayan yeni nesil lojistik platformudur.
+              </p>
+              <div className="flex items-center gap-4 text-white">
+                <Link href="#" className="hover:text-[#FA8B00] transition-colors"><Twitter className="h-4 w-4" /></Link>
+                <Link href="#" className="hover:text-[#FA8B00] transition-colors"><Facebook className="h-4 w-4" /></Link>
+                <Link href="#" className="hover:text-[#FA8B00] transition-colors"><Instagram className="h-4 w-4" /></Link>
+                <Link href="#" className="hover:text-[#FA8B00] transition-colors"><Linkedin className="h-4 w-4" /></Link>
+                <Link href="#" className="hover:text-[#FA8B00] transition-colors"><Youtube className="h-4 w-4" /></Link>
+              </div>
             </div>
 
             {/* Column 1 */}
             <div className="flex flex-col gap-3">
-              <Link href="#" className="hover:text-white transition-colors">Hakkımızda</Link>
-              <Link href="#" className="hover:text-white transition-colors">Kampanyalar</Link>
-              <Link href="#" className="hover:text-white transition-colors">Kariyer</Link>
-              <Link href="#" className="hover:text-white transition-colors">Basında Biz</Link>
-              <Link href="#" className="hover:text-white transition-colors">Sıkça Sorulan Sorular</Link>
+              <Link href="/hakkimizda" className="hover:text-white transition-colors">Hakkımızda</Link>
+              <Link href="/nasil-calisir" className="hover:text-white transition-colors">Nasıl Çalışır?</Link>
+              <Link href="/sss" className="hover:text-white transition-colors">Sıkça Sorulan Sorular</Link>
               <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
             </div>
 
@@ -61,19 +69,11 @@ export function Footer() {
             <div>
               <h3 className="mb-4 font-semibold text-white">Sözleşmeler</h3>
               <div className="flex flex-col gap-3 mb-8">
-                <Link href="#" className="hover:text-white transition-colors">Kişisel Verilerin Korunması</Link>
-                <Link href="#" className="hover:text-white transition-colors">Ticari Elektronik İleti Onay Metni</Link>
-                <Link href="#" className="hover:text-white transition-colors">Kullanıcı Sözleşmesi</Link>
-                <Link href="#" className="hover:text-white transition-colors">Taşıma Belgesi</Link>
-                <Link href="#" className="hover:text-white transition-colors">IATA Sertifikası</Link>
-                <Link href="#" className="hover:text-white transition-colors">ISO 27001</Link>
-                <Link href="#" className="hover:text-white transition-colors">ISO 45001</Link>
-                <Link href="#" className="hover:text-white transition-colors">ISO 9001</Link>
-                <Link href="#" className="hover:text-white transition-colors">Politikalarımız</Link>
+                <Link href="/sozlesmeler/kisisel-verilerin-korunmasi" className="hover:text-white transition-colors">Kişisel Verilerin Korunması</Link>
+                <Link href="/sozlesmeler/ticari-elektronik-ileti-onay-metni" className="hover:text-white transition-colors">Ticari Elektronik İleti Onay Metni</Link>
+                <Link href="/sozlesmeler/kullanici-sozlesmesi" className="hover:text-white transition-colors">Kullanıcı Sözleşmesi</Link>
+                <Link href="/sozlesmeler/politikalarimiz" className="hover:text-white transition-colors">Politikalarımız</Link>
               </div>
-              
-              <h3 className="mb-2 font-semibold text-white">Kargo Anlaşma Numaraları</h3>
-              <p>PTT Kargo: 404263491</p>
             </div>
 
             {/* Column 3: İletişim */}
@@ -99,26 +99,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Middle Section: Partners & Social */}
-          <div className="flex flex-col lg:flex-row items-center justify-between border-b border-white/10 py-8 gap-6">
-            <div className="flex items-center gap-6">
-              <span className="font-semibold text-white text-xs">Destekçiler</span>
-              {/* Placeholders for logos */}
-              <div className="flex items-center gap-4 text-xs font-bold text-white/40">
-                <span>WCA</span>
-                <span>IATA</span>
-                <span>JCtrans</span>
-              </div>
-            </div>
-            
-            <div className="flex items-center gap-4 text-white">
-              <Link href="#" className="hover:text-[#FA8B00] transition-colors"><Twitter className="h-4 w-4" /></Link>
-              <Link href="#" className="hover:text-[#FA8B00] transition-colors"><Facebook className="h-4 w-4" /></Link>
-              <Link href="#" className="hover:text-[#FA8B00] transition-colors"><Instagram className="h-4 w-4" /></Link>
-              <Link href="#" className="hover:text-[#FA8B00] transition-colors"><Linkedin className="h-4 w-4" /></Link>
-              <Link href="#" className="hover:text-[#FA8B00] transition-colors"><Youtube className="h-4 w-4" /></Link>
-            </div>
-          </div>
+
 
           <div className="py-6 text-center text-xs">
             © {new Date().getFullYear()} Gönderio Lojistik ve Teknoloji Anonim Şirketi. Tüm Hakları Saklıdır.
@@ -129,8 +110,6 @@ export function Footer() {
             <div className="flex flex-col gap-3">
               <h4 className="font-semibold text-white mb-2">Hizmetlerimiz</h4>
               <Link href="#" className="hover:text-white transition-colors">Yurt Dışı Kargo</Link>
-              <Link href="#" className="hover:text-white transition-colors">Yurt İçi Kargo</Link>
-              <Link href="#" className="hover:text-white transition-colors">Uluslararası Ticari Yük Taşımacılığı</Link>
             </div>
 
             <div className="flex flex-col gap-3">
@@ -143,7 +122,6 @@ export function Footer() {
             <div className="flex flex-col gap-3">
               <h4 className="font-semibold text-white mb-2">Anlaşmalı Kargo Servislerimiz</h4>
               <Link href="#" className="hover:text-white transition-colors">UPS Yurt Dışı Kargo</Link>
-              <Link href="#" className="hover:text-white transition-colors">PTT Yurt Dışı Kargo</Link>
               <Link href="#" className="hover:text-white transition-colors">DHL Yurt Dışı Kargo</Link>
               <Link href="#" className="hover:text-white transition-colors">FedEx Yurt Dışı Kargo</Link>
               <Link href="#" className="hover:text-white transition-colors">TNT Yurt Dışı Kargo</Link>
@@ -153,19 +131,22 @@ export function Footer() {
               <h4 className="font-semibold text-white mb-2">Uluslararası Taşımacılık</h4>
               <Link href="#" className="hover:text-white transition-colors">Uluslararası Karayolu Taşımacılığı</Link>
               <Link href="#" className="hover:text-white transition-colors">Uluslararası Havayolu Taşımacılığı</Link>
-              <Link href="#" className="hover:text-white transition-colors">Uluslararası Denizyolu Taşımacılığı</Link>
-              <Link href="#" className="hover:text-white transition-colors">Intermodal Taşımacılık</Link>
             </div>
 
             <div className="flex flex-col gap-3">
               <h4 className="font-semibold text-white mb-2">Ülkelere Göre Kargo Servislerimiz</h4>
               <Link href="#" className="hover:text-white transition-colors">Amerika Kargo</Link>
-              <Link href="#" className="hover:text-white transition-colors">Rusya Kargo</Link>
               <Link href="#" className="hover:text-white transition-colors">İngiltere Kargo</Link>
               <Link href="#" className="hover:text-white transition-colors">Almanya Kargo</Link>
               <Link href="#" className="hover:text-white transition-colors">Kanada Kargo</Link>
-              <Link href="#" className="hover:text-white transition-colors">Çin Kargo</Link>
-              <Link href="#" className="hover:text-white transition-colors">Dubai Kargo</Link>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <h4 className="font-semibold text-white mb-2">Diğer Ürünlerimiz</h4>
+              <div className="flex items-center gap-2">
+                <Link href="#" className="hover:text-white transition-colors">Türkiye'den Getir</Link>
+                <span className="bg-[#FA8B00]/20 text-[#FA8B00] text-[10px] font-bold px-2 py-0.5 rounded-full">Yakında</span>
+              </div>
             </div>
           </div>
           
