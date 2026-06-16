@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { MapPin, Phone, MessageSquare, Twitter, Facebook, Instagram, Linkedin, Youtube } from "lucide-react"
+import { MapPin, Phone, MessageSquare, Twitter, Facebook, Instagram, Linkedin, Youtube, ArrowUpRight } from "lucide-react"
 
 export function Footer() {
   return (
@@ -19,9 +19,12 @@ export function Footer() {
           </p>
           <Link
             href="/kayitol"
-            className="inline-block rounded-lg bg-[#0B0F19] px-10 py-4 text-[15px] font-bold text-white hover:bg-black transition-colors"
+            className="inline-flex items-center gap-4 rounded-full bg-[#1A1A1A] py-2 pl-6 pr-2 text-[15px] font-medium text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl"
           >
             Hemen Teklif Al
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FA8B00] text-white">
+              <ArrowUpRight className="h-5 w-5" strokeWidth={2.5} />
+            </div>
           </Link>
         </div>
 
@@ -88,7 +91,7 @@ export function Footer() {
               <h3 className="mb-3 text-white">Yardıma ihtiyacınız mı var?</h3>
               <Link
                 href="#cozum-merkezi"
-                className="inline-flex items-center gap-2 rounded border border-pink-500/50 bg-transparent px-4 py-2 text-pink-400 hover:bg-pink-500/10 transition-colors"
+                className="inline-flex items-center gap-2 rounded border border-[#FA8B00]/50 bg-transparent px-4 py-2 text-[#FA8B00] hover:bg-[#FA8B00]/10 transition-colors"
               >
                 <MessageSquare className="h-4 w-4" />
                 Çözüm Merkezimize Yazın

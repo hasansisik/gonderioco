@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowUpRight, Calculator } from "lucide-react"
 
 export function Hero() {
@@ -8,17 +9,18 @@ export function Hero() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8 items-center">
           
           {/* Left Content */}
-          <div className="max-w-3xl lg:col-span-7 xl:col-span-8">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-[54px] leading-[1.1] mb-6">
-              Yurt Dışı Gönderilerinizi <span className="italic font-extrabold">Gönderio</span> ile Kolaylaştırın!
+          <div className="max-w-3xl lg:col-span-6 xl:col-span-7">
+            <h1 className="text-3xl sm:text-4xl lg:text-[38px] font-bold tracking-tight leading-[1.25] mb-5">
+              Yurt Dışı Gönderilerinizi <br className="hidden lg:block"/>
+              <span className="italic font-extrabold">Gönderio</span> ile Kolaylaştırın!
             </h1>
             
-            <p className="mb-6 text-lg text-white/90 leading-relaxed">
+            <p className="mb-5 text-sm sm:text-[15px] text-white/90 leading-relaxed max-w-lg">
               130'dan fazla ülkeye anında kargo teklifi alın, teklifleri karşılaştırın,
               gönderin, depolama ve fulfillment operasyonlarınızı yönetin.
             </p>
             
-            <p className="mb-10 text-lg text-white/90 leading-relaxed">
+            <p className="mb-8 text-sm sm:text-[15px] text-white/90 leading-relaxed max-w-lg">
               Dilerseniz Amerika gönderileriniz için gümrük vergisini de hemen hesaplayın!
             </p>
 
@@ -45,17 +47,15 @@ export function Hero() {
           </div>
 
           {/* Right Content / Image Area */}
-          <div className="relative mx-auto w-full max-w-lg lg:max-w-none flex justify-center lg:justify-end lg:col-span-5 xl:col-span-4">
-            <div className="relative w-full aspect-square max-w-[500px]">
-              {/* Image Container */}
-              <div className="relative h-full w-full rounded-[2rem] bg-white p-2 overflow-hidden shadow-2xl border border-white/20">
-                {/* Fallback image if specific asset is missing */}
-                <img 
-                  src="/auth.png" 
-                  alt="Gönderio Lojistik" 
-                  className="h-full w-full rounded-[1.5rem] object-cover"
-                />
-              </div>
+          <div className="relative mx-auto w-full max-w-lg lg:max-w-none flex justify-center lg:justify-end lg:col-span-6 xl:col-span-5">
+            <div className="relative w-full aspect-square max-w-[550px] xl:max-w-[650px] scale-110 hover:scale-[1.15] transition-transform duration-500 origin-center lg:origin-right">
+              <Image 
+                src="/hero.png" 
+                alt="Gönderio Lojistik" 
+                fill
+                className="object-contain drop-shadow-2xl"
+                priority
+              />
             </div>
           </div>
         </div>
