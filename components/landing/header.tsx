@@ -1,61 +1,80 @@
+"use client"
+
 import Link from "next/link"
-import { ChevronDown, Globe, User } from "lucide-react"
+import { ChevronDown, Globe, ArrowUpRight } from "lucide-react"
+import { useState, useEffect } from "react"
 
 export function Header() {
-  return (
-    <header className="sticky top-0 z-50 w-full bg-[#FA8B00] text-white">
-      <div className="flex h-24 w-full items-center justify-between px-6 lg:px-12 xl:px-20">
-        {/* Left Side: Logo & Navigation */}
-        <div className="flex items-center gap-10 xl:gap-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <img
-              src="/logo.png"
-              alt="Gönderio"
-              className="h-14 w-auto object-contain brightness-0 invert"
-            />
-          </Link>
+  const [isScrolled, setIsScrolled] = useState(false)
 
-          {/* Navigation */}
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+    
+    // Check initial scroll position
+    handleScroll()
+    
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  return (
+    <header 
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        isScrolled 
+          ? "bg-white/40 backdrop-blur-lg shadow-sm text-black" 
+          : "bg-[#FA8B00] text-white"
+      }`}
+    >
+      <div className="relative flex h-24 w-full items-center justify-between px-6 lg:px-12 xl:px-20">
+        {/* Left Side: Navigation */}
+        <div className="flex flex-1 items-center justify-start">
           <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-[13px] font-semibold">
-            <Link href="#hizmetlerimiz" className="flex items-center gap-1 whitespace-nowrap hover:text-white/80 transition-colors">
+            <Link href="#hizmetlerimiz" className={`flex items-center gap-1 whitespace-nowrap transition-colors ${isScrolled ? "hover:text-black/70" : "hover:text-white/80"}`}>
               Hizmetlerimiz <ChevronDown className="h-3 w-3" />
             </Link>
-            <Link href="#nasil-calisir" className="flex items-center gap-1 whitespace-nowrap hover:text-white/80 transition-colors">
+            <Link href="#nasil-calisir" className={`flex items-center gap-1 whitespace-nowrap transition-colors ${isScrolled ? "hover:text-black/70" : "hover:text-white/80"}`}>
               Nasıl Çalışır? <ChevronDown className="h-3 w-3" />
             </Link>
-            <Link href="#uluslararasi" className="flex items-center gap-1 whitespace-nowrap hover:text-white/80 transition-colors">
-              Uluslararası Taşımacılık <ChevronDown className="h-3 w-3" />
-            </Link>
-            <Link href="#is-birlikleri" className="whitespace-nowrap hover:text-white/80 transition-colors">
-              İş Birlikleri
-            </Link>
-            <Link href="#sss" className="whitespace-nowrap hover:text-white/80 transition-colors">
+            <Link href="#sss" className={`whitespace-nowrap transition-colors ${isScrolled ? "hover:text-black/70" : "hover:text-white/80"}`}>
               Sıkça Sorulan Sorular
-            </Link>
-            <Link href="#cozum-merkezi" className="whitespace-nowrap hover:text-white/80 transition-colors">
-              Çözüm Merkezi
             </Link>
           </nav>
         </div>
 
+        {/* Center: Logo */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <Link href="/" className="flex items-center">
+            <img
+              src="/logo.png"
+              alt="Gönderio"
+              className={`h-14 w-auto object-contain transition-all duration-300 ${isScrolled ? "brightness-0" : "brightness-0 invert"}`}
+            />
+          </Link>
+        </div>
+
         {/* Right Actions */}
-        <div className="hidden lg:flex items-center gap-4 xl:gap-6 text-[13px] font-semibold">
-          <Link href="#diger-urunler" className="flex items-center gap-1 whitespace-nowrap hover:text-white/80 transition-colors">
+        <div className="flex flex-1 items-center justify-end">
+          <div className="hidden lg:flex items-center gap-4 xl:gap-6 text-[13px] font-semibold">
+          <Link href="#diger-urunler" className={`flex items-center gap-1 whitespace-nowrap transition-colors ${isScrolled ? "hover:text-black/70" : "hover:text-white/80"}`}>
             Diğer Ürünlerimiz <ChevronDown className="h-3 w-3" />
           </Link>
           
           <Link
             href="/giris"
-            className="flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-bold text-[#FA8B00] hover:bg-slate-50 transition-colors"
+            className="flex items-center gap-3 rounded-full bg-[#1A1A1A] py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:scale-105"
           >
-            <User className="h-4 w-4" />
             Giriş Yap / Kayıt Ol
+            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#FA8B00]">
+              <ArrowUpRight className="h-4 w-4 text-white" strokeWidth={2.5} />
+            </div>
           </Link>
           
-          <button className="flex items-center gap-1 hover:text-white/80 transition-colors">
-            <Globe className="h-4 w-4" /> TR <ChevronDown className="h-3 w-3" />
-          </button>
+            <button className={`flex items-center gap-1 transition-colors ${isScrolled ? "hover:text-black/70" : "hover:text-white/80"}`}>
+              <Globe className="h-4 w-4" /> TR <ChevronDown className="h-3 w-3" />
+            </button>
+          </div>
         </div>
       </div>
     </header>

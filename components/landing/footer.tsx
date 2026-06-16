@@ -5,8 +5,11 @@ export function Footer() {
   return (
     <>
       {/* Call to Action Banner */}
-      <section className="bg-[#E67E00] py-16 text-center text-white">
-        <div className="container mx-auto max-w-4xl px-4">
+      <section className="relative flex min-h-[500px] flex-col justify-center overflow-hidden bg-[#FA8B00] py-32 lg:py-48 text-center text-white">
+        {/* Smooth Transition from Previous Section */}
+        <div className="absolute top-0 left-0 h-[60%] w-full bg-gradient-to-b from-white to-transparent pointer-events-none"></div>
+
+        <div className="container relative z-10 mx-auto max-w-4xl px-4">
           <p className="mb-6 text-sm font-medium">Ana Sayfa</p>
           <h2 className="mb-4 text-3xl font-bold sm:text-4xl">
             İlk gönderinizi beraber gerçekleştirelim.
@@ -21,6 +24,9 @@ export function Footer() {
             Hemen Teklif Al
           </Link>
         </div>
+
+        {/* Smooth Transition to Footer */}
+        <div className="absolute bottom-0 left-0 h-[60%] w-full bg-gradient-to-t from-[#0B0F19] to-transparent pointer-events-none"></div>
       </section>
 
       {/* Main Footer */}
