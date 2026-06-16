@@ -44,6 +44,7 @@ export function ShowcaseFeatures() {
                   src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?q=80&w=1000&auto=format&fit=crop" 
                   alt="E-commerce Integration" 
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover object-top"
                 />
               </div>
@@ -59,6 +60,7 @@ export function ShowcaseFeatures() {
                   src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?q=80&w=1000&auto=format&fit=crop" 
                   alt="Logistics Optimization" 
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
@@ -100,6 +102,7 @@ export function ShowcaseFeatures() {
                   src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=1000&auto=format&fit=crop" 
                   alt="Mobile Tracking" 
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
