@@ -78,7 +78,7 @@ export function Calculator() {
                          <div>
                             <label className="text-[14px] font-semibold text-slate-700 mb-2 block">Nereden</label>
                             <Select defaultValue="tr">
-                              <SelectTrigger className="w-full h-11 bg-white border border-slate-200 rounded-xl px-4 text-sm font-medium text-slate-900 focus:ring-[#FA8B00]/30 outline-none">
+                              <SelectTrigger className="w-full !h-[52px] bg-white border border-slate-200 rounded-xl px-4 text-[15px] font-normal text-slate-900 focus:ring-[#FA8B00]/30 outline-none">
                                 <SelectValue placeholder="Ülke seçin" />
                               </SelectTrigger>
                               <SelectContent>
@@ -89,7 +89,7 @@ export function Calculator() {
                          <div>
                             <label className="text-[14px] font-semibold text-slate-700 mb-2 block">Nereye</label>
                             <Select defaultValue="us">
-                              <SelectTrigger className="w-full h-11 bg-white border border-slate-200 rounded-xl px-4 text-sm font-medium text-slate-900 focus:ring-[#FA8B00]/30 outline-none">
+                              <SelectTrigger className="w-full !h-[52px] bg-white border border-slate-200 rounded-xl px-4 text-[15px] font-normal text-slate-900 focus:ring-[#FA8B00]/30 outline-none">
                                 <SelectValue placeholder="Ülke seçin" />
                               </SelectTrigger>
                               <SelectContent>
@@ -106,23 +106,23 @@ export function Calculator() {
                         <label className="text-[15px] font-semibold text-slate-700 mb-2 block">Koli Ölçüleri</label>
                         <div className="grid grid-cols-4 gap-3">
                            <div>
-                             <label className="text-[12px] font-semibold text-slate-500 block mb-2">Ağırlık</label>
+                             <label className="text-[13px] font-semibold text-slate-500 block mb-2">Ağırlık</label>
                              <div className="relative flex items-center">
-                               <input type="number" required placeholder="0" className="flex h-11 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#FA8B00]/30" />
-                               <span className="absolute right-3 text-[11px] font-medium text-slate-400">kg</span>
+                               <input type="number" required placeholder="0" className="flex !h-[52px] w-full rounded-xl border border-slate-200 bg-white px-4 text-[15px] font-normal text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#FA8B00]/30" />
+                               <span className="absolute right-4 text-[13px] font-normal text-slate-400">kg</span>
                              </div>
                            </div>
                            <div>
-                             <label className="text-[12px] font-semibold text-slate-500 block mb-2">En</label>
-                             <input type="number" required placeholder="0" className="flex h-11 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-center text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#FA8B00]/30" />
+                             <label className="text-[13px] font-semibold text-slate-500 block mb-2">En</label>
+                             <input type="number" required placeholder="0" className="flex !h-[52px] w-full rounded-xl border border-slate-200 bg-white px-3 text-center text-[15px] font-normal text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#FA8B00]/30" />
                            </div>
                            <div>
-                             <label className="text-[12px] font-semibold text-slate-500 block mb-2">Boy</label>
-                             <input type="number" required placeholder="0" className="flex h-11 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-center text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#FA8B00]/30" />
+                             <label className="text-[13px] font-semibold text-slate-500 block mb-2">Boy</label>
+                             <input type="number" required placeholder="0" className="flex !h-[52px] w-full rounded-xl border border-slate-200 bg-white px-3 text-center text-[15px] font-normal text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#FA8B00]/30" />
                            </div>
                            <div>
-                             <label className="text-[12px] font-semibold text-slate-500 block mb-2">Yükseklik</label>
-                             <input type="number" required placeholder="0" className="flex h-11 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-center text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#FA8B00]/30" />
+                             <label className="text-[13px] font-semibold text-slate-500 block mb-2">Yükseklik</label>
+                             <input type="number" required placeholder="0" className="flex !h-[52px] w-full rounded-xl border border-slate-200 bg-white px-3 text-center text-[15px] font-normal text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#FA8B00]/30" />
                            </div>
                         </div>
                      </div>
