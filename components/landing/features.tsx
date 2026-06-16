@@ -23,8 +23,10 @@ export function Features() {
     <section id="nasil-calisir" className="bg-white py-24 sm:py-32">
       <div className="container mx-auto max-w-6xl px-4">
         <div className="mx-auto mb-20 max-w-4xl text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-[#333333] sm:text-3xl">
-            Yurt Dışına En Uygun Kargo Gönderimi
+          <h2 className="text-2xl md:text-3xl lg:text-4xl text-slate-900 mb-4 tracking-tight leading-tight">
+            <span className="font-light">Yurt Dışına </span>
+            <span className="font-extrabold italic">En Uygun </span>
+            <span className="font-light">Kargo Gönderimi.</span>
           </h2>
           <p className="mt-6 text-sm sm:text-[15px] leading-relaxed text-slate-500">
             Gönderio'yu kullanarak zaman ve maliyetten tasarruf edin. Uçak bileti satın alır gibi yüzlerce lojistik firmasını

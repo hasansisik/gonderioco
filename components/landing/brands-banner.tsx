@@ -31,8 +31,8 @@ export function BrandsBanner() {
 
           {/* Content Side */}
           <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left pt-8 lg:pt-0 pl-0 lg:pl-12">
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-medium text-white mb-5 leading-tight tracking-tight max-w-xl whitespace-nowrap md:whitespace-normal">
-              E-ihracat operasyonlarını nasıl<br/>
+            <h2 className="text-xl md:text-2xl lg:text-3xl text-white mb-5 leading-tight tracking-tight max-w-xl whitespace-nowrap md:whitespace-normal">
+              <span className="font-light">E-ihracat operasyonlarını nasıl </span><br/>
               <span className="font-extrabold italic">yönetebilirsin?</span>
             </h2>
             <p className="text-white/90 text-sm md:text-[15px] mb-8 max-w-[400px] leading-relaxed">
