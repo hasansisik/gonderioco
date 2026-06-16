@@ -54,7 +54,7 @@ export function Footer() {
               <Link href="#" className="hover:text-white transition-colors">Kariyer</Link>
               <Link href="#" className="hover:text-white transition-colors">Basında Biz</Link>
               <Link href="#" className="hover:text-white transition-colors">Sıkça Sorulan Sorular</Link>
-              <Link href="#" className="hover:text-white transition-colors">Blog</Link>
+              <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
             </div>
 
             {/* Column 2: Sözleşmeler */}

@@ -4,7 +4,11 @@ import Link from "next/link"
 import { ChevronDown, Globe, ArrowUpRight } from "lucide-react"
 import { useState, useEffect } from "react"
 
-export function Header() {
+interface HeaderProps {
+  theme?: "orange" | "light"
+}
+
+export function Header({ theme = "orange" }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
@@ -23,21 +27,23 @@ export function Header() {
     <header 
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         isScrolled 
-          ? "bg-white/40 backdrop-blur-lg shadow-sm text-black" 
-          : "bg-[#FA8B00] text-white"
+          ? "bg-white/90 backdrop-blur-lg shadow-sm text-slate-900" 
+          : theme === "light" 
+            ? "bg-transparent text-slate-900" 
+            : "bg-[#FA8B00] text-white"
       }`}
     >
       <div className="relative flex h-24 w-full items-center justify-between px-6 lg:px-12 xl:px-20">
         {/* Left Side: Navigation */}
         <div className="flex flex-1 items-center justify-start">
           <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-[13px] font-semibold">
-            <Link href="#hizmetlerimiz" className={`flex items-center gap-1 whitespace-nowrap transition-colors ${isScrolled ? "hover:text-black/70" : "hover:text-white/80"}`}>
+            <Link href="#hizmetlerimiz" className={`flex items-center gap-1 whitespace-nowrap transition-colors ${isScrolled || theme === "light" ? "hover:text-black/70" : "hover:text-white/80"}`}>
               Hizmetlerimiz <ChevronDown className="h-3 w-3" />
             </Link>
-            <Link href="#nasil-calisir" className={`flex items-center gap-1 whitespace-nowrap transition-colors ${isScrolled ? "hover:text-black/70" : "hover:text-white/80"}`}>
+            <Link href="#nasil-calisir" className={`flex items-center gap-1 whitespace-nowrap transition-colors ${isScrolled || theme === "light" ? "hover:text-black/70" : "hover:text-white/80"}`}>
               Nasıl Çalışır? <ChevronDown className="h-3 w-3" />
             </Link>
-            <Link href="#sss" className={`whitespace-nowrap transition-colors ${isScrolled ? "hover:text-black/70" : "hover:text-white/80"}`}>
+            <Link href="#sss" className={`whitespace-nowrap transition-colors ${isScrolled || theme === "light" ? "hover:text-black/70" : "hover:text-white/80"}`}>
               Sıkça Sorulan Sorular
             </Link>
           </nav>
@@ -49,7 +55,7 @@ export function Header() {
             <img
               src="/logo.png"
               alt="Gönderio"
-              className={`h-14 w-auto object-contain transition-all duration-300 ${isScrolled ? "brightness-0" : "brightness-0 invert"}`}
+              className={`h-14 w-auto object-contain transition-all duration-300 ${isScrolled || theme === "light" ? "brightness-0" : "brightness-0 invert"}`}
             />
           </Link>
         </div>
@@ -57,7 +63,7 @@ export function Header() {
         {/* Right Actions */}
         <div className="flex flex-1 items-center justify-end">
           <div className="hidden lg:flex items-center gap-4 xl:gap-6 text-[13px] font-semibold">
-          <Link href="#diger-urunler" className={`flex items-center gap-1 whitespace-nowrap transition-colors ${isScrolled ? "hover:text-black/70" : "hover:text-white/80"}`}>
+          <Link href="#diger-urunler" className={`flex items-center gap-1 whitespace-nowrap transition-colors ${isScrolled || theme === "light" ? "hover:text-black/70" : "hover:text-white/80"}`}>
             Diğer Ürünlerimiz <ChevronDown className="h-3 w-3" />
           </Link>
           
@@ -71,7 +77,7 @@ export function Header() {
             </div>
           </Link>
           
-            <button className={`flex items-center gap-1 transition-colors ${isScrolled ? "hover:text-black/70" : "hover:text-white/80"}`}>
+            <button className={`flex items-center gap-1 transition-colors ${isScrolled || theme === "light" ? "hover:text-black/70" : "hover:text-white/80"}`}>
               <Globe className="h-4 w-4" /> TR <ChevronDown className="h-3 w-3" />
             </button>
           </div>
