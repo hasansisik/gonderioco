@@ -86,6 +86,7 @@ export function Header({ theme = "orange" }: HeaderProps) {
             </div>
           </div>
           
+          {/* 
           <Link
             href="/giris"
             className="flex items-center gap-3 rounded-full bg-[#1A1A1A] py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:scale-105"
@@ -95,6 +96,7 @@ export function Header({ theme = "orange" }: HeaderProps) {
               <ArrowUpRight className="h-4 w-4 text-white" strokeWidth={2.5} />
             </div>
           </Link>
+          */}
           
             <button className={`flex items-center gap-1 transition-colors ${isScrolled || theme === "light" ? "hover:text-black/70" : "hover:text-white/80"}`}>
               <Globe className="h-4 w-4" /> TR <ChevronDown className="h-3 w-3" />
