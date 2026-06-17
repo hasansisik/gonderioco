@@ -81,11 +81,11 @@ export function Footer() {
               <h3 className="mb-4 font-semibold text-white">İletişim</h3>
               <div className="flex items-start gap-3 mb-4">
                 <MapPin className="h-5 w-5 shrink-0 mt-0.5 text-white/50" />
-                <p>15 Temmuz Mahallesi Gülbahar Caddesi, 1500 Sokak No:16 Güneşli-Bağcılar/İstanbul</p>
+                <p>Çekmeköy, İstanbul</p>
               </div>
               <div className="flex items-center gap-3 mb-8">
                 <Phone className="h-5 w-5 shrink-0 text-white/50" />
-                <p>0850 532 79 49</p>
+                <p>+90 532 349 72 55</p>
               </div>
 
               <h3 className="mb-3 text-white">Yardıma ihtiyacınız mı var?</h3>
