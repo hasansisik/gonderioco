@@ -13,7 +13,23 @@ export function Step3PaketTipi({
 }: any) {
   return (
     <div className="space-y-6">
-      <h3 className="text-lg font-semibold text-slate-800 mb-6">Paket tipi ve boyutları</h3>
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 pb-6 border-b border-slate-100 mb-6">
+        <h3 className="text-lg font-semibold text-slate-800">Paket tipi ve boyutları</h3>
+        <div className="flex items-center gap-6">
+          <button 
+            onClick={onPrev}
+            className="text-[#0A2540] hover:text-orange-600 font-semibold text-sm transition-colors"
+          >
+            Geri
+          </button>
+          <Button 
+            className="bg-[#FA8B00] hover:bg-orange-500 text-white rounded-lg px-8 py-2.5 font-semibold transition-colors"
+            onClick={onNext}
+          >
+            Devam
+          </Button>
+        </div>
+      </div>
       
       <div className="space-y-6">
         <div className="flex items-center gap-6">
@@ -105,21 +121,6 @@ export function Step3PaketTipi({
             <Plus className="w-4 h-4" /> Yeni Paket ekle
           </button>
         </div>
-      </div>
-
-      <div className="flex justify-between items-center pt-6 border-t border-slate-100 mt-8">
-        <button 
-          onClick={onPrev}
-          className="text-slate-500 hover:text-slate-800 font-semibold text-sm transition-colors"
-        >
-          Geri
-        </button>
-        <Button 
-          className="bg-[#FA8B00] hover:bg-orange-500 text-white rounded-lg px-8 py-2 font-semibold h-11 transition-colors"
-          onClick={onNext}
-        >
-          Devam
-        </Button>
       </div>
     </div>
   );

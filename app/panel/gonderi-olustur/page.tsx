@@ -5,7 +5,9 @@ import { Step1AliciBilgileri } from "@/components/panel/gonderi-olustur/step-1-a
 import { Step2GondericiAdresi } from "@/components/panel/gonderi-olustur/step-2-gonderici-adresi";
 import { Step3PaketTipi } from "@/components/panel/gonderi-olustur/step-3-paket-tipi";
 import { Step4GonderiIcerigi } from "@/components/panel/gonderi-olustur/step-4-gonderi-icerigi";
-import { ClipboardList, MapPin, Package, FileText } from "lucide-react";
+import { Step5Teklifler } from "@/components/panel/gonderi-olustur/step-5-teklifler";
+import { ClipboardList, MapPin, Package, FileText, Tag } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function GonderiOlusturPage() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -26,24 +28,24 @@ export default function GonderiOlusturPage() {
   const [packageType, setPackageType] = useState<"Koli" | "Zarf" | "Doküman">("Koli");
   
   return (
-    <div className="w-full">
-      <div className="mb-24">
+    <div className="w-full pb-32">
+      <div className="mb-10">
         <div className="flex w-full relative">
           {/* Connecting Line background */}
           <div className="absolute top-5 left-[12.5%] right-[12.5%] h-1 bg-slate-200 z-0"></div>
           {/* Connecting Line active */}
           <div 
-            className="absolute top-5 left-[12.5%] h-1 bg-[#FA8B00] z-0 transition-all duration-500" 
-            style={{ width: `${(currentStep - 1) * 33.33}%` }}
+            className="absolute top-5 left-[10%] h-1 bg-[#FA8B00] z-0 transition-all duration-500" 
+            style={{ width: `${(currentStep - 1) * 20}%` }}
           ></div>
 
           {/* Step 1 */}
-          <div className="flex flex-col items-center relative z-10 w-1/4">
+          <div className="flex flex-col items-center relative z-10 w-1/5">
             <div 
-              className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all cursor-pointer bg-white
-                ${currentStep >= 1 ? "border-[#FA8B00] text-[#FA8B00]" : "border-slate-300 text-slate-400"}
-                ${currentStep === 1 ? "shadow-[0_0_0_4px_rgba(250,139,0,0.1)]" : ""}
-                ${currentStep > 1 ? "bg-[#FA8B00] text-white" : ""}
+              className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all cursor-pointer 
+                ${currentStep > 1 ? "border-[#FA8B00] bg-[#FA8B00] text-white" : 
+                  currentStep === 1 ? "border-[#FA8B00] bg-white text-[#FA8B00] shadow-[0_0_0_4px_rgba(250,139,0,0.1)]" : 
+                  "border-slate-300 bg-white text-slate-400"}
               `}
               onClick={() => setCurrentStep(1)}
             >
@@ -63,12 +65,12 @@ export default function GonderiOlusturPage() {
           </div>
 
           {/* Step 2 */}
-          <div className="flex flex-col items-center relative z-10 w-1/4">
+          <div className="flex flex-col items-center relative z-10 w-1/5">
             <div 
-              className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all cursor-pointer bg-white
-                ${currentStep >= 2 ? "border-[#FA8B00] text-[#FA8B00]" : "border-slate-300 text-slate-400"}
-                ${currentStep === 2 ? "shadow-[0_0_0_4px_rgba(250,139,0,0.1)]" : ""}
-                ${currentStep > 2 ? "bg-[#FA8B00] text-white" : ""}
+              className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all cursor-pointer 
+                ${currentStep > 2 ? "border-[#FA8B00] bg-[#FA8B00] text-white" : 
+                  currentStep === 2 ? "border-[#FA8B00] bg-white text-[#FA8B00] shadow-[0_0_0_4px_rgba(250,139,0,0.1)]" : 
+                  "border-slate-300 bg-white text-slate-400"}
               `}
               onClick={() => currentStep > 2 && setCurrentStep(2)}
             >
@@ -88,12 +90,12 @@ export default function GonderiOlusturPage() {
           </div>
 
           {/* Step 3 */}
-          <div className="flex flex-col items-center relative z-10 w-1/4">
+          <div className="flex flex-col items-center relative z-10 w-1/5">
             <div 
-              className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all cursor-pointer bg-white
-                ${currentStep >= 3 ? "border-[#FA8B00] text-[#FA8B00]" : "border-slate-300 text-slate-400"}
-                ${currentStep === 3 ? "shadow-[0_0_0_4px_rgba(250,139,0,0.1)]" : ""}
-                ${currentStep > 3 ? "bg-[#FA8B00] text-white" : ""}
+              className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all cursor-pointer 
+                ${currentStep > 3 ? "border-[#FA8B00] bg-[#FA8B00] text-white" : 
+                  currentStep === 3 ? "border-[#FA8B00] bg-white text-[#FA8B00] shadow-[0_0_0_4px_rgba(250,139,0,0.1)]" : 
+                  "border-slate-300 bg-white text-slate-400"}
               `}
               onClick={() => currentStep > 3 && setCurrentStep(3)}
             >
@@ -113,11 +115,12 @@ export default function GonderiOlusturPage() {
           </div>
 
           {/* Step 4 */}
-          <div className="flex flex-col items-center relative z-10 w-1/4">
+          <div className="flex flex-col items-center relative z-10 w-1/5">
             <div 
-              className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all bg-white
-                ${currentStep >= 4 ? "border-[#FA8B00] text-[#FA8B00]" : "border-slate-300 text-slate-400"}
-                ${currentStep === 4 ? "shadow-[0_0_0_4px_rgba(250,139,0,0.1)]" : ""}
+              className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all 
+                ${currentStep > 4 ? "border-[#FA8B00] bg-[#FA8B00] text-white" : 
+                  currentStep === 4 ? "border-[#FA8B00] bg-white text-[#FA8B00] shadow-[0_0_0_4px_rgba(250,139,0,0.1)]" : 
+                  "border-slate-300 bg-white text-slate-400"}
               `}
             >
               <FileText className="w-4 h-4" />
@@ -125,7 +128,31 @@ export default function GonderiOlusturPage() {
             <div className="mt-3 flex flex-col items-center text-center px-2">
               <span className="text-[10px] font-bold text-slate-500 tracking-wider mb-1">ADIM 4</span>
               <span className="text-xs font-semibold text-slate-800 mb-1">Gönderi İçeriği</span>
-              {currentStep === 4 ? (
+              {currentStep > 4 ? (
+                <span className="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-bold rounded-full">Tamamlandı</span>
+              ) : currentStep === 4 ? (
+                <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] font-bold rounded-full">Aktif</span>
+              ) : (
+                <span className="px-2 py-0.5 bg-slate-100 text-slate-500 text-[10px] font-bold rounded-full">Bekliyor</span>
+              )}
+            </div>
+          </div>
+
+          {/* Step 5 */}
+          <div className="flex flex-col items-center relative z-10 w-1/5">
+            <div 
+              className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all 
+                ${currentStep > 5 ? "border-[#FA8B00] bg-[#FA8B00] text-white" : 
+                  currentStep === 5 ? "border-[#FA8B00] bg-white text-[#FA8B00] shadow-[0_0_0_4px_rgba(250,139,0,0.1)]" : 
+                  "border-slate-300 bg-white text-slate-400"}
+              `}
+            >
+              <Tag className="w-4 h-4" />
+            </div>
+            <div className="mt-3 flex flex-col items-center text-center px-2">
+              <span className="text-[10px] font-bold text-slate-500 tracking-wider mb-1">ADIM 5</span>
+              <span className="text-xs font-semibold text-slate-800 mb-1">Teklifler</span>
+              {currentStep === 5 ? (
                 <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] font-bold rounded-full">Aktif</span>
               ) : (
                 <span className="px-2 py-0.5 bg-slate-100 text-slate-500 text-[10px] font-bold rounded-full">Bekliyor</span>
@@ -169,6 +196,14 @@ export default function GonderiOlusturPage() {
         {currentStep === 4 && (
           <Step4GonderiIcerigi 
             onPrev={() => setCurrentStep(3)}
+            onNext={() => setCurrentStep(5)}
+          />
+        )}
+
+        {currentStep === 5 && (
+          <Step5Teklifler 
+            onPrev={() => setCurrentStep(4)}
+            onComplete={() => alert("Sipariş tamamlandı!")}
           />
         )}
       </div>

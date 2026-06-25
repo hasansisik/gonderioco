@@ -5,10 +5,26 @@ import { PremiumInput, PremiumSelect } from "@/components/ui/premium-form-elemen
 import { ChevronRight, Plus, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export function Step4GonderiIcerigi({ onPrev }: any) {
+export function Step4GonderiIcerigi({ onPrev, onNext }: any) {
   return (
     <div className="space-y-6">
-      <h3 className="text-lg font-semibold text-slate-800 mb-6">Gönderi tipi ve içeriği</h3>
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 pb-6 border-b border-slate-100 mb-6">
+        <h3 className="text-lg font-semibold text-slate-800">Gönderi tipi ve içeriği</h3>
+        <div className="flex items-center gap-6">
+          <button 
+            onClick={onPrev}
+            className="text-[#0A2540] hover:text-orange-600 font-semibold text-sm transition-colors"
+          >
+            Geri
+          </button>
+          <Button 
+            className="bg-[#FA8B00] hover:bg-orange-500 text-white rounded-lg px-8 py-2.5 font-semibold transition-colors shadow-lg shadow-orange-500/20"
+            onClick={onNext}
+          >
+            Teklifleri Gör
+          </Button>
+        </div>
+      </div>
       
       <div className="space-y-8">
         <div>
@@ -151,18 +167,6 @@ export function Step4GonderiIcerigi({ onPrev }: any) {
 
         <div className="flex justify-end pt-6 border-t border-slate-100">
           <span className="text-lg font-bold text-slate-800">Toplam Yük Değeri $ -.--</span>
-        </div>
-        
-        <div className="flex justify-between items-center pt-2 gap-4">
-          <button 
-            onClick={onPrev}
-            className="text-slate-500 hover:text-slate-800 font-semibold text-sm transition-colors shrink-0 px-4"
-          >
-            Geri
-          </button>
-          <Button className="w-full bg-[#FA8B00] hover:bg-orange-500 text-white rounded-lg py-6 font-bold text-lg transition-colors shadow-lg shadow-orange-500/20">
-            Teklifleri Gör
-          </Button>
         </div>
       </div>
     </div>

@@ -29,7 +29,7 @@ export const PremiumInput = ({ label, placeholder, type = "text", value, onChang
                 required={required}
                 disabled={disabled}
                 className={cn(
-                    "w-full h-11 rounded-2xl border border-slate-200 bg-white text-[12px] text-slate-800 font-normal focus:outline-none focus:ring-4 focus:ring-orange-500/5 focus:bg-white transition-all shadow-sm placeholder:text-slate-300 font-sans",
+                    "w-full h-11 rounded-lg border border-slate-200 bg-white text-[12px] text-slate-800 font-normal focus:outline-none focus:ring-4 focus:ring-orange-500/5 focus:bg-white transition-all placeholder:text-slate-300 font-sans",
                     Icon ? "pl-11 pr-5" : "px-6",
                     disabled && "bg-slate-50 border-slate-100 opacity-100 text-slate-700 cursor-default"
                 )}
@@ -49,7 +49,7 @@ export const PremiumTextarea = ({ label, placeholder, value, onChange, className
             rows={rows}
             disabled={disabled}
             className={cn(
-                "w-full rounded-[2rem] border border-slate-200 bg-white px-6 py-4 text-[12px] text-slate-800 font-normal focus:outline-none focus:ring-4 focus:ring-orange-500/5 focus:bg-white shadow-inner resize-none leading-relaxed transition-all font-sans placeholder:text-slate-300",
+                "w-full rounded-lg border border-slate-200 bg-white px-6 py-4 text-[12px] text-slate-800 font-normal focus:outline-none focus:ring-4 focus:ring-orange-500/5 focus:bg-white resize-none leading-relaxed transition-all font-sans placeholder:text-slate-300",
                 disabled && "bg-slate-50 border-slate-100 opacity-100 text-slate-700 cursor-default"
             )}
         />
@@ -90,7 +90,7 @@ export const PremiumSelect = ({ label, value, onChange, options, placeholder, cl
                 required={required}
                 disabled={disabled}
                 className={cn(
-                    "w-full h-11 appearance-none rounded-2xl border border-slate-200 bg-white text-[12px] text-slate-800 font-normal focus:outline-none focus:ring-4 focus:ring-orange-500/5 focus:bg-white transition-all cursor-pointer shadow-sm font-sans",
+                    "w-full h-11 appearance-none rounded-lg border border-slate-200 bg-white text-[12px] text-slate-800 font-normal focus:outline-none focus:ring-4 focus:ring-orange-500/5 focus:bg-white transition-all cursor-pointer font-sans",
                     Icon ? "pl-11 pr-10" : "px-6 pr-10",
                     disabled && "bg-slate-50 border-slate-100 opacity-100 text-slate-700 cursor-default"
                 )}
