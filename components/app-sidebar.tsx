@@ -82,6 +82,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   const computeNavData = React.useCallback(() => {
     return [
+      /*
       {
         title: "Kontrol Paneli",
         url: "/panel",
@@ -92,11 +93,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         url: "/panel/hizli-fiyat",
         iconKey: "Calculator",
       },
+      */
       {
         title: "Gönderi Oluştur",
         url: "/panel/gonderi-olustur",
         iconKey: "PlusCircle",
       },
+      /*
       {
         title: "Sevkiyatlarım",
         url: "/panel/sevkiyatlarim",
@@ -107,11 +110,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         url: "/panel/canli-sevkiyatlar",
         iconKey: "Navigation",
       },
-      {
-        title: "Cani",
-        url: "/panel/cani",
-        iconKey: "Ghost",
-      },
+
       {
         title: "Kurye Taleplerim",
         url: "/panel/kurye-taleplerim",
@@ -156,6 +155,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         url: "/panel/adreslerim",
         iconKey: "Home",
       },
+      */
     ];
   }, []);
 

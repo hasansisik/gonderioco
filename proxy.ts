@@ -1,18 +1,11 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const url = request.nextUrl.clone()
   
   // Şimdilik giriş, kayıt, şifre işlemleri ve panel sayfalarını gizle
-  const blockedPaths = [
-    '/giris',
-    '/kayitol',
-    '/sifremiunuttum',
-    '/sifresifirlama',
-    '/dogrulama',
-    '/panel'
-  ];
+  const blockedPaths: string[] = [];
 
   if (blockedPaths.some(path => url.pathname.startsWith(path))) {
     url.pathname = '/'

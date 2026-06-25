@@ -30,7 +30,11 @@ export const initializeSocket = (token: string): Socket => {
     });
 
     socket.on("connect_error", (error) => {
-        console.error("Socket connection error:", error);
+        if (error.message.includes("Invalid token") || error.message.includes("Authentication error")) {
+            console.warn("Socket authentication failed:", error.message);
+        } else {
+            console.error("Socket connection error:", error);
+        }
     });
 
     return socket;

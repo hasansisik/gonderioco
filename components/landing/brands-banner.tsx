@@ -23,6 +23,7 @@ export function BrandsBanner() {
                 src="/brands.png" 
                 alt="Gönderio Pazaryeri Entegrasyonları" 
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-contain drop-shadow-2xl"
                 priority
               />
